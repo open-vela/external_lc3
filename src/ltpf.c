@@ -515,8 +515,11 @@ LC3_HOT static float interpolate_corr(const float *x, int d)
     float y = d < 0 ? x[-4] * *(h++) :
               d > 0 ? x[ 4] * *(h+7) : 0;
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Warray-bounds"
     y += x[-3] * h[0] + x[-2] * h[1] + x[-1] * h[2] + x[0] * h[3] +
          x[ 1] * h[4] + x[ 2] * h[5] + x[ 3] * h[6];
+#pragma GCC diagnostic pop
 
     return y;
 }
