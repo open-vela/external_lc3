@@ -4,3 +4,6 @@ bin
 build
 test/build
 *__pycache__
+*.o
+src/*.o
+
