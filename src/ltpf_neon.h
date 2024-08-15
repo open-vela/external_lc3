@@ -111,7 +111,7 @@ LC3_HOT static void neon_resample_32k_12k8(
         int32x4_t un = vmull_s16(vld1_s16(xn), vld1_s16(hn));
         xn += 4, hn += 4;
 
-        for (int i = 1; i < 10; i++)
+        for (int j = 1; j < 10; j++)
             un = vmlal_s16(un, vld1_s16(xn), vld1_s16(hn)), xn += 4, hn += 4;
 
         int32_t yn = filter_hp50(hp50, vaddvq_s32(un));
@@ -174,7 +174,7 @@ LC3_HOT static void neon_resample_48k_12k8(
         int32x4_t un = vmull_s16(vld1_s16(xn), vld1_s16(hn));
         xn += 4, hn += 4;
 
-        for (int i = 1; i < 15; i++)
+        for (int j = 1; j < 15; j++)
             un = vmlal_s16(un, vld1_s16(xn), vld1_s16(hn)), xn += 4, hn += 4;
 
         int32_t yn = filter_hp50(hp50, vaddvq_s32(un));
